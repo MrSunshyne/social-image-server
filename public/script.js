@@ -13,19 +13,19 @@ document.querySelector('button[type="submit"]').addEventListener('click', (e) =>
 
     e.preventDefault();
 
-    const pageToScreenshot = document.getElementById('page').value;
+    const postTitle = document.getElementById('page').value;
 
-    if (!pageToScreenshot) return document.getElementById('result').textContent = 'Please enter a page URL';
+    if (!postTitle) return document.getElementById('result').textContent = 'Please enter a page URL';
 
     const options = {
         method: "POST",
         headers: { "Content-Type": "application/json; charset=utf-8" },
-        body: JSON.stringify({ pageToScreenshot: pageToScreenshot })
+        body: JSON.stringify({ postTitle: postTitle })
     };
 
     document.getElementById('result').textContent = "Please wait..."
 
-    fetch("/.netlify/functions/take-screenshot", options)
+    fetch("/.netlify/functions/create-social-image", options)
         .then((res) => res.json())
         .then((res) => {
             

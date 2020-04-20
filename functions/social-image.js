@@ -1,10 +1,7 @@
 import puppeteer from 'puppeteer-serverless';
 import renderSocialImage from 'puppeteer-social-image';
 
-import slugify from "slugify";
-
-let title = "Saamiyah a Post and this one has a really long title"
-let slug = slugify(title);
+let title = "Twasi a Post and this one has a really long title"
 
 export default async () => {
   await renderSocialImage({
@@ -16,7 +13,6 @@ export default async () => {
       eyebrow: "VueJS",
       watermark: "sandeep.ramgolam.com"
     },
-    output: slug + ".png",
     size: "facebook",
     browser:  await puppeteer.launch({})
   });
