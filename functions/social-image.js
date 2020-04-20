@@ -1,19 +1,14 @@
 import puppeteer from 'puppeteer-serverless';
 import renderSocialImage from 'puppeteer-social-image';
 
-let title = "Twasi a Post and this one has a really long title"
-
 export default async () => {
   await renderSocialImage({
-    template: "article",
+    template: "basic",
     templateParams: {
-      unsplashId: "WV4B_aVj0aQ",
-      title: title,
-      subtitle: "Is Maths related to science?",
-      eyebrow: "VueJS",
-      watermark: "sandeep.ramgolam.com"
+      imageUrl:
+        "https://images.unsplash.com/photo-1557958114-3d2440207108?w=1950&q=80",
+      title: "Hello, world"
     },
-    size: "facebook",
     browser:  await puppeteer.launch({})
   });
 }

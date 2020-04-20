@@ -1,23 +1,24 @@
 import puppeteer from 'puppeteer-serverless';
 import renderSocialImage from 'puppeteer-social-image';
 
-import slugify from "slugify";
+const gen = async() => {
+  const isDev =  process.env.NODE_ENV === 'development';
+  console.log(isDev)
+  const browser = isDev ?
+    await puppeteer.launch({ executablePath: '/usr/bin/google-chrome' }) :
+    await puppeteer.launch();
 
-let title = "Saamiyah a Post and this one has a really long title"
-let slug = slugify(title);
-
-export default async () => {
   await renderSocialImage({
     template: "article",
     templateParams: {
       unsplashId: "WV4B_aVj0aQ",
-      title: title,
+      title: "My awesome title",
       subtitle: "Is Maths related to science?",
-      eyebrow: "VueJS",
-      watermark: "sandeep.ramgolam.com"
+      eyebrow: "brows",    
     },
-    output: slug + ".png",
-    size: "facebook",
-    browser:  await puppeteer.launch({})
+    output: "output.png",
+    browser
   });
 }
+
+gen()
