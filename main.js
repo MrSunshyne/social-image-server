@@ -6,11 +6,10 @@ let slug = slugify(title);
 renderSocialImage({
   template: "article",
   templateParams: {
-    imageUrl:
-      "https://images.unsplash.com/photo-1557958114-3d2440207108?w=1950&q=80",
+    unsplashId: "WV4B_aVj0aQ",
     title: title,
-    subtitle: "This is my subtitle",
-    eyebrow: "My eyebrows",
+    subtitle: "Is Maths related to science?",
+    eyebrow: "VueJS",
     watermark: "sandeep.ramgolam.com"
   },
   output: slug + ".png",
