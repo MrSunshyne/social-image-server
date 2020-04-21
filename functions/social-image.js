@@ -1,7 +1,25 @@
-import puppeteer from 'puppeteer-serverless';
 import renderSocialImage from 'puppeteer-social-image';
 
+const chromium = require('chrome-aws-lambda');
+
+// return {
+//     statusCode: 200,
+//     body: JSON.stringify({ 
+//         message: `Complete screenshot of ${pageToScreenshot}`, 
+//         buffer: screenshot 
+//     })
+// }
+
+
+
 export default async () => {
+  const browser = await chromium.puppeteer.launch({
+    args: chromium.args,
+    defaultViewport: chromium.defaultViewport,
+    executablePath: await chromium.executablePath,
+    headless: chromium.headless,
+  });
+
   await renderSocialImage({
     template: "basic",
     templateParams: {
@@ -9,6 +27,8 @@ export default async () => {
         "https://images.unsplash.com/photo-1557958114-3d2440207108?w=1950&q=80",
       title: "Hello, world"
     },
-    browser:  await puppeteer.launch({})
+    browser
   });
+
+  await browser.close();
 }
