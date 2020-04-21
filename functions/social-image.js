@@ -1,5 +1,4 @@
 import renderSocialImage from 'puppeteer-social-image';
-
 const chromium = require('chrome-aws-lambda');
 
 // return {
@@ -11,7 +10,8 @@ const chromium = require('chrome-aws-lambda');
 // }
 
 
-export default async () => {
+exports.handler = async (event, context, callback) => { 
+
   const browser = await chromium.puppeteer.launch({
     args: chromium.args,
     defaultViewport: chromium.defaultViewport,
