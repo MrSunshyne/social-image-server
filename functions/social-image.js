@@ -11,7 +11,6 @@ const chromium = require('chrome-aws-lambda');
 // }
 
 
-
 export default async () => {
   const browser = await chromium.puppeteer.launch({
     args: chromium.args,
@@ -20,7 +19,7 @@ export default async () => {
     headless: chromium.headless,
   });
 
-  await renderSocialImage({
+  const image = await renderSocialImage({
     template: "basic",
     templateParams: {
       imageUrl:
@@ -31,4 +30,11 @@ export default async () => {
   });
 
   await browser.close();
+
+  return {
+    statusCode: 200,
+    body: JSON.stringify({
+      message: image
+    })
+  }
 }
