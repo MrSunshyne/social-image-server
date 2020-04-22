@@ -1,4 +1,4 @@
-const renderSocialImage = require('puppeteer-social-image');
+// const renderSocialImage = require('puppeteer-social-image');
 const chromium = require('chrome-aws-lambda');
 
 // return {
@@ -28,6 +28,8 @@ exports.handler = async (event, context, callback) => {
   //   },
   //   browser
   // });
+
+  let image = 'image hola';
 
   await browser.close();
 
