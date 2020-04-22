@@ -11,8 +11,6 @@ const puppeteer = require('puppeteer-serverless');
 
 exports.handler = async (event, context, callback) => { 
 
-  const browser = await puppeteer.launch();
-
   const image = await renderSocialImage({
     template: "basic",
     templateParams: {
@@ -20,17 +18,15 @@ exports.handler = async (event, context, callback) => {
         "https://images.unsplash.com/photo-1557958114-3d2440207108?w=1950&q=80",
       title: "Hello, world"
     },
-    browser
+    browser: await puppeteer.launch()
   });
 
   // let image = 'image hola';
-
-  await browser.close();
-
   return {
     statusCode: 200,
     body: JSON.stringify({
-      message: image
+      message: "Image Generated !",
+      buffer: image 
     })
   }
 }
