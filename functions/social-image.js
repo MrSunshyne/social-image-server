@@ -1,13 +1,5 @@
 const renderSocialImage = require('puppeteer-social-image');
 const puppeteer = require('puppeteer-serverless');
-// return {
-//     statusCode: 200,
-//     body: JSON.stringify({ 
-//         message: `Complete screenshot of ${pageToScreenshot}`, 
-//         buffer: screenshot 
-//     })
-// }
-
 
 exports.handler = async (event, context, callback) => { 
 
@@ -21,7 +13,6 @@ exports.handler = async (event, context, callback) => {
     browser: await puppeteer.launch()
   });
 
-  // let image = 'image hola';
   return {
     statusCode: 200,
     body: JSON.stringify({
