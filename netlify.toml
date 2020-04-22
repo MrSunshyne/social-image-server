@@ -2,3 +2,4 @@
   publish = "public/"
   functions = "functions/"
   command = "cd functions && npm i"
+  framework="static"
