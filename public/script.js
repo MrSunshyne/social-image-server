@@ -25,7 +25,7 @@ document.querySelector('button[type="submit"]').addEventListener('click', (e) =>
 
     document.getElementById('result').textContent = "Please wait..."
 
-    fetch("/.netlify/functions/create-social-image", options)
+    fetch("/.netlify/functions/social-image", options)
         .then((res) => res.json())
         .then((res) => {
             
