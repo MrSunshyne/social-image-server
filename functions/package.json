@@ -9,7 +9,7 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "puppeteer-social-image": "^0.6.0",
-    "puppeteer-serverless": "^1.0.0"
+    "puppeteer-serverless": "^1.0.0",
+    "puppeteer-social-image": "^0.6.0"
   }
-} 
+}
