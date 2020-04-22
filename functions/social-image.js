@@ -19,15 +19,15 @@ exports.handler = async (event, context, callback) => {
     headless: chromium.headless,
   });
 
-  const image = await renderSocialImage({
-    template: "basic",
-    templateParams: {
-      imageUrl:
-        "https://images.unsplash.com/photo-1557958114-3d2440207108?w=1950&q=80",
-      title: "Hello, world"
-    },
-    browser
-  });
+  // const image = await renderSocialImage({
+  //   template: "basic",
+  //   templateParams: {
+  //     imageUrl:
+  //       "https://images.unsplash.com/photo-1557958114-3d2440207108?w=1950&q=80",
+  //     title: "Hello, world"
+  //   },
+  //   browser
+  // });
 
   await browser.close();
 
