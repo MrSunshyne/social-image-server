@@ -9,6 +9,8 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+  },
+  "devDependencies": {
     "puppeteer-serverless": "^1.0.0",
     "puppeteer-social-image": "^0.6.0"
   }
