@@ -23,7 +23,7 @@ exports.handler = async (event, context, callback) => {
     browser
   });
 
-  let image = 'image hola';
+  // let image = 'image hola';
 
   await browser.close();
 
