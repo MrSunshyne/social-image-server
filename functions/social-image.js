@@ -1,5 +1,5 @@
 const renderSocialImage = require('puppeteer-social-image');
-import puppeteer from 'puppeteer-serverless';
+const puppeteer = require('puppeteer-serverless');
 // return {
 //     statusCode: 200,
 //     body: JSON.stringify({ 
