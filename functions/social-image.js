@@ -1,6 +1,5 @@
-// const renderSocialImage = require('puppeteer-social-image');
-const chromium = require('chrome-aws-lambda');
-
+const renderSocialImage = require('puppeteer-social-image');
+import puppeteer from 'puppeteer-serverless';
 // return {
 //     statusCode: 200,
 //     body: JSON.stringify({ 
@@ -12,22 +11,17 @@ const chromium = require('chrome-aws-lambda');
 
 exports.handler = async (event, context, callback) => { 
 
-  const browser = await chromium.puppeteer.launch({
-    args: chromium.args,
-    defaultViewport: chromium.defaultViewport,
-    executablePath: await chromium.executablePath,
-    headless: chromium.headless,
-  });
+  const browser = await puppeteer.launch();
 
-  // const image = await renderSocialImage({
-  //   template: "basic",
-  //   templateParams: {
-  //     imageUrl:
-  //       "https://images.unsplash.com/photo-1557958114-3d2440207108?w=1950&q=80",
-  //     title: "Hello, world"
-  //   },
-  //   browser
-  // });
+  const image = await renderSocialImage({
+    template: "basic",
+    templateParams: {
+      imageUrl:
+        "https://images.unsplash.com/photo-1557958114-3d2440207108?w=1950&q=80",
+      title: "Hello, world"
+    },
+    browser
+  });
 
   let image = 'image hola';
 
